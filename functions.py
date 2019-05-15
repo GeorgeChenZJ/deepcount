@@ -27,15 +27,10 @@ def total_parameters(scope=None):
       total_parameters += variable_parameters
   return total_parameters
 def gaussian_kernel(shape=(32,32),sigma=5):
-  """
-  2D gaussian kernel which is equal to MATLAB's
-  fspecial('gaussian',[shape],[sigma])
-  """
   radius_x,radius_y = [(radius-1.)/2. for radius in shape]
   y_range,x_range = np.ogrid[-radius_y:radius_y+1,-radius_x:radius_x+1]
   h = np.exp( -(x_range*x_range + y_range*y_range) / (2.*sigma*sigma) )
 
-  # finfo(dtype).eps: a very small value
   h[ h < np.finfo(h.dtype).eps*h.max()] = 0
   sumofh = h.sum()
   if sumofh != 0:

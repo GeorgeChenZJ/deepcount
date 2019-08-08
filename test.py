@@ -17,7 +17,7 @@ def get_test_names(part='B'):
         strict_test_names = preprocess_data(
             names=load_data_names(train=False, part=part),
             data_path='./datasets/shanghaitech/'+part+'/test/',
-            test=True,
+            test=True, 
             test_dict=test_dict,
             input_size=[384,512],
             load_data_fn=load_data_ShanghaiTech

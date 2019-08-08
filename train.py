@@ -15,7 +15,7 @@ from data import get_train_data_names
 
 new_model = True
 gpu_num = 1
-batch_size = 16
+batch_size = 20
 part = 'B'
 
 tf.reset_default_graph()

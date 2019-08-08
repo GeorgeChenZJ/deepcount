@@ -4,7 +4,7 @@ import numpy as np
 
 def conv(kernel_size, input, filters, padding='same', strides=(1,1), name=None, act=tf.nn.relu, dilation=1, dropout=None, training=True):
   out = tf.layers.conv2d(input, filters, kernel_size,
-                        strides = strides,
+                        strides=strides,
                         dilation_rate = 1,
                         activation=act,
                         padding=padding,

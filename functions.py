@@ -1,6 +1,5 @@
 from __future__ import print_function, division
 import torch
-from torchvision import models as torch_models
 import tensorflow as tf
 import numpy as np
 from PIL import Image, ImageOps
@@ -11,8 +10,6 @@ import time
 from tqdm import tqdm
 import math
 import pickle
-import h5py
-import cv2
 
 def id_generator(size=8, chars=string.ascii_uppercase + string.digits):
   return ''.join(random.choice(chars) for _ in range(size))

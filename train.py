@@ -5,6 +5,7 @@ import logging
 import random
 import os
 from threading import Thread
+import numpy as np
 
 from functions import *
 from model import model
@@ -13,8 +14,8 @@ from data import get_train_data_names
 
 
 new_model = True
-gpu_num = 3
-batch_size = 66
+gpu_num = 1
+batch_size = 16
 part = 'B'
 
 tf.reset_default_graph()

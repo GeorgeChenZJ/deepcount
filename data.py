@@ -4,7 +4,9 @@ import os
 import random
 import pickle
 
-from functions import *
+from functions import preprocess_data
+
+data_dir = "./shanghaitech/"
 
 def get_train_data_names(part):
     if not (os.path.exists('./train_names.pkl') and os.path.exists('./test_names.pkl')):
@@ -49,18 +51,18 @@ def move_files(path_to_load, part='A'):
     os.makedirs(train_ptl)
   if not os.path.exists(test_ptl):
     os.makedirs(test_ptl)
-  for _, _, files in os.walk("./shanghaitech/part_"+part+"_final/train_data/ground_truth"):
+  for _, _, files in os.walk(data_dir+"/part_"+part+"_final/train_data/ground_truth"):
     for filename in files:
       if '.mat' in filename:
         new_name = filename.replace('GT_','')
-        os.rename("./shanghaitech/part_"+part+"_final/train_data/ground_truth/"+filename, train_ptl + new_name)
-        os.rename("./shanghaitech/part_"+part+"_final/train_data/images/"+new_name.replace('.mat','.jpg'), train_ptl + new_name.replace('.mat','.jpg'))
-  for _, _, files in os.walk("./shanghaitech/part_"+part+"_final/test_data/ground_truth"):
+        os.rename(data_dir+"/part_"+part+"_final/train_data/ground_truth/"+filename, train_ptl + new_name)
+        os.rename(data_dir+"/part_"+part+"_final/train_data/images/"+new_name.replace('.mat','.jpg'), train_ptl + new_name.replace('.mat','.jpg'))
+  for _, _, files in os.walk(data_dir+"/part_"+part+"_final/test_data/ground_truth"):
     for filename in files:
       if '.mat' in filename:
         new_name = filename.replace('GT_','')
-        os.rename("./shanghaitech/part_"+part+"_final/test_data/ground_truth/"+filename, test_ptl + new_name)
-        os.rename("./shanghaitech/part_"+part+"_final/test_data/images/"+new_name.replace('.mat','.jpg'), test_ptl + new_name.replace('.mat','.jpg'))
+        os.rename(data_dir+"/part_"+part+"_final/test_data/ground_truth/"+filename, test_ptl + new_name)
+        os.rename(data_dir+"/part_"+part+"_final/test_data/images/"+new_name.replace('.mat','.jpg'), test_ptl + new_name.replace('.mat','.jpg'))
 
 def load_data_names(train=True, part='A'):
   names = []
@@ -79,14 +81,4 @@ def load_data_names(train=True, part='A'):
 def load_data_ShanghaiTech(path):
   img = Image.open(path+'.jpg')
   coords = scipy_io.loadmat(path+'.mat')['image_info'][0][0][0][0][0]
-  return img, coords
-def load_negatives_data_names():
-  names = []
-  for _, _, files in os.walk('./negative/negative_images_1/'):
-    for filename in files:
-      names.append(filename)
-  return names
-def load_data_negatives(path):
-  img = Image.open(path)
-  coords = []
   return img, coords

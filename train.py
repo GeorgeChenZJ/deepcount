@@ -3,21 +3,17 @@ import tensorflow as tf
 import time
 import logging
 import random
+import os
 from threading import Thread
 
 from functions import *
-from model import *
-from test import *
-from data import *
-import argparse
+from model import model
+from test import full_test
+from data import get_train_data_names
 
-parser = argparse.ArgumentParser()
-parser.add_argument('resume', nargs='?', default='0')
-args = parser.parse_args()
 
-import os
+new_model = True
 gpu_num = 3
-new_model = args.resume!='1'
 batch_size = 66
 part = 'B'
 
@@ -34,14 +30,13 @@ if True:
     target11 = tf.placeholder( tf.float32 , shape=(None, 24, 32, 1))
     target10 = tf.placeholder( tf.float32 , shape=(None, 48, 64, 1))
     training = tf.placeholder( tf.bool )
-    dropout = tf.placeholder_with_default(tf.constant(0.3, tf.float32), shape=[])
+    dropout = tf.placeholder_with_default(tf.constant(0.0, tf.float32), shape=[])
     alpha = tf.placeholder_with_default(tf.constant(1e-5, tf.float64), shape=[])
     train, loss, Decoded, monitor = model(input, [target15, target14, target13, target12, target11, target10]
                                                                        , training, alpha, dropout=dropout, gpu_num=gpu_num)
     saver = tf.train.Saver(max_to_keep=2)
     best_saver = tf.train.Saver(max_to_keep=1)
     print('total number of parameters:', total_parameters())
-
 
 logging.basicConfig(filename='./output/train.log',level=logging.INFO)
 train_names, test_names = get_train_data_names(part=part)
@@ -56,7 +51,7 @@ with tf.Session(graph=graph, config=tf.ConfigProto(gpu_options=gpu_options)) as 
     EMA = 0
     train_MAEs = None
     test_MAEs = None
-    best_result = 200
+    best_result = 999
   else:
     last_cp = tf.train.latest_checkpoint('./output/model')
     saver.restore(sess, last_cp)
@@ -165,16 +160,7 @@ with tf.Session(graph=graph, config=tf.ConfigProto(gpu_options=gpu_options)) as 
         print(*log_str)
         logging.info(' '.join(log_str))
 
-        if step%400==0 and False:
-
-          display_set_of_imgs([train_out14[0], train_t14[0], train_out13[0], train_t13[0], train_out12[0]
-                               , train_t12[0], train_out11[0], train_t11[0], train_out10[0], train_t10[0]
-                               , denormalize(train_inputs[0])], rows=3, size=2)
-          display_set_of_imgs([test_out14[0], test_t14[0], test_out13[0], test_t13[0], test_out12[0]
-                               , test_t12[0], test_out11[0], test_t11[0], test_out10[0], test_t10[0]
-                               , denormalize(test_inputs[0])], rows=3, size=2)
-
-        if step%200==0:
+        if step%400==0:
 
           saver.save(sess, "./output/model/model", global_step=global_step)
           print(">>> Model saved:", global_step)

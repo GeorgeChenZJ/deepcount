@@ -9,7 +9,6 @@ import time
 import pickle
 
 from functions import *
-from model import *
 from data import *
 
 def get_test_names(part='B'):

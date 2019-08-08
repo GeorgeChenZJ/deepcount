@@ -4,6 +4,7 @@ import os
 import random
 import pickle
 from scipy import io as scipy_io
+import numpy as np
 
 from PIL import Image
 

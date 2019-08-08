@@ -9,8 +9,8 @@ Deep Density-aware Count Regressor
 3. Place vgg16-397923af.pth under the work directory
 
 ### Data
-Prepare the dataset first and modify data.py to get the data accessible. See data.py for detail.
-The current code of data.py is for Shanghai Tech Part B. Before training the model download 
+- Prepare the dataset first and modify data.py to get the data accessible. See data.py for detail.
+The current code of data.py is for Shanghai Tech Part B. Before training the model download Shanghai Tech dataset should be downloaded (https://drive.google.com/file/d/16dhJn7k4FWVwByRsQAEpl9lwjuV03jVI/view). Change 'data_dir' in data.py to correct path.
 
 ### Run
 ```

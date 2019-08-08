@@ -3,6 +3,7 @@ import tensorflow as tf
 import os
 import random
 import pickle
+from PIL import Image
 
 from functions import preprocess_data
 

@@ -167,7 +167,7 @@ with tf.Session(graph=graph, config=tf.ConfigProto(gpu_options=gpu_options)) as 
           print(">>> Model saved:", global_step)
           logging.info(">>> Model saved: "+str(global_step))
 
-          if global_step>=2000 or step==0:
+          if True:
             test_results = full_test(sess, Decoded,
                 input, target15, target14, target13, target12, target11, target10, training, part=part, gpu_num=gpu_num)
             log_str = ['>>> TEST ', time.asctime()+': i [', str(global_step),

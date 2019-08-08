@@ -9,7 +9,6 @@ import os
 import random
 import time
 from tqdm import tqdm
-from scipy import io as scipy_io
 import math
 import pickle
 import h5py

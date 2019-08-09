@@ -17,4 +17,4 @@ The current code of data.py is for Shanghai Tech Part B. Before training the mod
 ```
 python train.py
 ```
-- The code is written to be plain but not optimally efficient
+- Note that the code is written to be plain but not optimally efficient.

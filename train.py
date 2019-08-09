@@ -12,7 +12,6 @@ from model import model
 from test import full_test
 from data import get_train_data_names
 
-
 new_model = True
 gpu_num = 1
 batch_size = 20

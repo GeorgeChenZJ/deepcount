@@ -3,12 +3,12 @@
 Deep Density-aware Count Regressor
 - a state-of-the-art method for crowd counting
 - fast, easy to implement and scale
-- link: https://arxiv.org/abs/1908.03314
+- paper: https://arxiv.org/abs/1908.03314
 
 ### Installation
 1. Install requirements: Python 2.7, Tensorflow >= 1.8, PyTorch >= 0.4, Pillow, tqdm, scipy
 2. Download pretrained vgg model from https://download.pytorch.org/models/vgg16-397923af.pth
-3. Place vgg16-397923af.pth under the work directory
+3. Place vgg16-397923af.pth under the working directory
 
 ### Data
 - Prepare the dataset first and modify data.py to make the data accessible. See data.py for detail.

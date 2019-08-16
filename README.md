@@ -2,6 +2,8 @@
 
 Deep Density-aware Count Regressor
 - a state-of-the-art method for crowd counting
+- fast, easy to implement and scale
+- link: https://arxiv.org/abs/1908.03314
 
 ### Installation
 1. Install requirements: Python 2.7, Tensorflow >= 1.8, PyTorch >= 0.4, Pillow, tqdm, scipy
@@ -18,3 +20,6 @@ The current code of data.py is for Shanghai Tech Part B. Before training the mod
 python train.py
 ```
 - Note that the code is written to be plain but not optimally efficient.
+
+### Trained Weights
+- We provide trained model on ShanghaiTech Part B: https://drive.google.com/open?id=1qaYXLX5vYS0prhDFdYLWSr4YFDf_geQz

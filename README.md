@@ -12,7 +12,7 @@ Deep Density-aware Count Regressor
 
 ### Data
 - Prepare the dataset first and modify data.py to make the data accessible. See data.py for detail.
-The current code of data.py is for Shanghai Tech Part B. Before training the model download Shanghai Tech dataset should be downloaded (https://drive.google.com/file/d/16dhJn7k4FWVwByRsQAEpl9lwjuV03jVI/view). Change 'data_dir' in data.py to correct path for the dataset.
+The current code of data.py is for Shanghai Tech Part B. Before training the model download Shanghai Tech dataset should be downloaded (https://drive.google.com/file/d/16dhJn7k4FWVwByRsQAEpl9lwjuV03jVI/view). Change 'data_dir' in data.py and relevant codes for loading the dataset.
 
 ### Run
 - Set batch size and number of devices in train.py and then run

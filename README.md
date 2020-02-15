@@ -5,6 +5,9 @@ Deep Density-aware Count Regressor
 - fast, easy to implement and scale
 - paper: https://arxiv.org/abs/1908.03314
 
+### PaddlePaddle Implementation Branch
+https://github.com/GeorgeChenZJ/deepcount/tree/paddle
+
 ### Installation
 1. Install requirements: Python 2.7, Tensorflow >= 1.8, PyTorch >= 0.4, Pillow, tqdm, scipy
 2. Download pretrained vgg model from https://download.pytorch.org/models/vgg16-397923af.pth
